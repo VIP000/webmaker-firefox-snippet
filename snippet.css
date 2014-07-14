@@ -32,10 +32,9 @@ div.snippet img.icon {
 .snippet #snippet-css {
   border: none;
   background: transparent;
-
   /* Twitter typeahead is pushing it down somehow, so we'll push it
    * back up with this. */
-  margin-top: -11px;
+  margin-top: -1.1em;
 }
 
 .snippet .tt-dropdown-menu {
