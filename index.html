@@ -21,17 +21,8 @@
     }
     </style>
     <script src="ribbonate.js"></script>
-    <script src="jquery.min.js"></script>
-    <script src="typeahead.jquery.js"></script>
-    <script src="css-colors.js"></script>
-    <script src="snippet.js"></script>
-    <script>
-    $(function() {
-      $('.snippet-set').load('snippet.html', function() {
-        Snippet.start();
-      });
-    });
-    </script>
+    <script src="bundle.js"></script>
+    <script>$(Snippet.start);</script>
   </head>
 
   <body>
