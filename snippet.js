@@ -14,7 +14,7 @@ var Snippet = (function() {
     chars = chars.split('');
 
     function typeNextChar() {
-      if (chars.length == 0) return cb();
+      if (chars.length === 0) return cb();
       $('#snippet-css').val($('#snippet-css').val() + chars.shift());
       setCss();
       setTimeout(typeNextChar, 250);
@@ -107,7 +107,7 @@ var Snippet = (function() {
       startRemixing();
       return false;
     });
-  };
+  }
 
   return {
     start: start
