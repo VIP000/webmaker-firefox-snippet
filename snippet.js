@@ -1,4 +1,7 @@
+/*global window, $, CSS_COLORS*/
+/*exported Snippet*/
 var Snippet = (function() {
+  var setTimeout = window.setTimeout;
   var inCruiseControl = false;
   var wasCssTinkeredWith = false;
 
