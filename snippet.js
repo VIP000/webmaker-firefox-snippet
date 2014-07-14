@@ -1,9 +1,13 @@
-/*global window, $, CSS_COLORS*/
+/*global window, $, CSS_COLORS, SNIPPET_HTML*/
 /*exported Snippet*/
 var Snippet = (function() {
   var setTimeout = window.setTimeout;
   var inCruiseControl = false;
   var wasCssTinkeredWith = false;
+
+  function setupHtml() {
+    $('.snippet-set').html(SNIPPET_HTML);
+  }
 
   function setCss() {
     var css = $('#snippet-css').val();
@@ -95,6 +99,7 @@ var Snippet = (function() {
   }
 
   function start() {
+    setupHtml();
     activateTypeahead();
     $('#snippet-css').on('keyup change', setCss);
     $('#snippet-css').on('keydown', function(e) {
