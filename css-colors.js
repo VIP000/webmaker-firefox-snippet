@@ -1,3 +1,4 @@
+/*exported CSS_COLORS*/
 // https://github.com/bahamas10/css-color-names
 var CSS_COLORS = {
   "aqua": "#00ffff",
