@@ -1,0 +1,8 @@
+{
+    "freeze": true,
+    "latedef": "nofunc",
+    "undef": true,
+    "unused": true,
+    "trailing": true,
+    "immed": true
+}
