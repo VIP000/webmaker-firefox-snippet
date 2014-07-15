@@ -1,0 +1,33 @@
+{
+  "name": "webmaker-firefox-snippet",
+  "version": "1.0.0",
+  "description": "Webmaker Firefox Snippet",
+  "scripts": {
+    "start": "gulp test && cd test && lute open",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brianloveswords/webmaker-firefox-snippet.git"
+  },
+  "author": "Mozilla Foundation",
+  "license": "MPL 2.0",
+  "bugs": {
+    "url": "https://github.com/brianloveswords/webmaker-firefox-snippet/issues"
+  },
+  "homepage": "https://github.com/brianloveswords/webmaker-firefox-snippet",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.8.6",
+    "gulp-compile-handlebars": "^0.2.0",
+    "gulp-concat": "^2.3.3",
+    "gulp-minify-css": "^0.3.6",
+    "gulp-rename": "^1.2.0",
+    "gulp-shell": "^0.2.8",
+    "gulp-uglify": "^0.3.1",
+    "jshint": "^2.5.2",
+    "lute": "0.0.4",
+    "rimraf": "^2.2.8",
+    "uglifyjs": "^2.3.6"
+  }
+}

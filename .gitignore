@@ -3,3 +3,7 @@
 /bundle.js
 /jquery/
 /webmaker-logo.png.datauri
+/node_modules/
+dist
+/src/jquery.custom.min.js
+/test/index.html

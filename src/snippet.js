@@ -112,7 +112,5 @@ var Snippet = (function() {
     });
   }
 
-  return {
-    start: start
-  };
+  return { start: start };
 })();

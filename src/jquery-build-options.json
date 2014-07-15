@@ -1,0 +1,7 @@
+[
+  "-exports/amd",
+  "-serialize",
+  "-ajax",
+  "-deprecated",
+  "-sizzle"
+]
