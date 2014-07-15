@@ -21,9 +21,9 @@ jquery.custom.min.js: jquery
 	sed '$$d' $(JQUERY_DIST_DIR)/jquery.min.js > jquery.custom.min.js
 
 image-dataurl:
-	printf '<img src="data:image/png;base64,' >$(LOGO_PATH).html
-	base64 <$(LOGO_PATH) | tr -d "\n" >>$(LOGO_PATH).html
-	printf '" />' >>$(LOGO_PATH).html
+	@printf 'data:image/png;base64,' >$(LOGO_PATH).datauri
+	@base64 <$(LOGO_PATH) | tr -d "\n" >>$(LOGO_PATH).datauri
+	@cat $(LOGO_PATH).datauri
 
 count-bytes: bundle.js
 	@echo $(shell wc -c < bundle.js | tr -d ' ') bytes \
