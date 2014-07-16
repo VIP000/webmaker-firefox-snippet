@@ -15,6 +15,22 @@ div.snippet img.icon {
   position: relative;
 }
 
+.snippet.dark {
+  color: #f0f0f0
+}
+
+.snippet.dark #snippet-css {
+  color: #fff;
+}
+
+.snippet.dark a {
+  color: #00bfff;
+}
+
+.twitter-typeahead {
+  color: #3C3C3C
+}
+
 .snippet .snippet-content {
   padding-left: 80px;
   width: 400px;

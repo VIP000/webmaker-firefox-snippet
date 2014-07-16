@@ -5,25 +5,51 @@ var Snippet = (function() {
   var inCruiseControl = false;
   var wasCssTinkeredWith = false;
 
+  // from http://24ways.org/2010/calculating-color-contrast/
+  function isDark(cssString){
+	  var hex = cssString.replace('#', '');
+    var r = parseInt(hex.substr(0,2),16);
+	  var g = parseInt(hex.substr(2,2),16);
+	  var b = parseInt(hex.substr(4,2),16);
+	  var yiq = ((r*299) + (g*587) + (b*114)) / 1000;
+	  return yiq <= 128;
+  }
+
   function setCss() {
     var css = $('#snippet-css').val();
+    var $snippet = $('.snippet');
     // http://meyerweb.com/eric/thoughts/2014/06/19/rebeccapurple/
     if (/^(re)?beccapurple$/i.test(css.trim()))
       css = '#663399';
+
+    var hex = CSS_COLORS[css.toLowerCase()];
+    if (hex) {
+      if (isDark(hex)) {
+        $snippet.addClass('dark');
+      } else {
+        $snippet.removeClass('dark');
+      }
+    }
+
+    if (!css) {
+      $snippet.removeClass('dark');
+    }
+
     $('body').css('background', css);
   }
 
   function typeCssChars(chars, cb) {
+    var $snippetCss = $('#snippet-css');
     chars = chars.split('');
 
     function typeNextChar() {
       if (chars.length === 0) return cb();
-      $('#snippet-css').val($('#snippet-css').val() + chars.shift());
+      $snippetCss.val($snippetCss.val() + chars.shift());
       setCss();
       setTimeout(typeNextChar, 250);
     }
 
-    $('#snippet-css').val('');
+    $snippetCss.val('');
     typeNextChar();
   }
 
@@ -31,8 +57,14 @@ var Snippet = (function() {
     inCruiseControl = true;
     $('#snippet-pg-1').fadeOut(function() {
       $('#snippet-pg-2').fadeIn(function() {
-        $('.body-frame').addClass('selected');
         $('#snippet-css').focus();
+
+        if (typeof DEBUG_MODE !== 'undefined') {
+          inCruiseControl = false;
+          return;
+        }
+
+        $('.body-frame').addClass('selected');
         setTimeout(function() {
           $('.body-frame .arrow-box')
             .addClass('selected')
@@ -95,9 +127,10 @@ var Snippet = (function() {
   }
 
   function start() {
+    var $snippetCss = $('#snippet-css');
     activateTypeahead();
-    $('#snippet-css').on('keyup change', setCss);
-    $('#snippet-css').on('keydown', function(e) {
+    $snippetCss.on('keyup change', setCss);
+    $snippetCss.on('keydown', function(e) {
       if (!e.ctrlKey && !e.metaKey && !e.altKey) {
         if (inCruiseControl) return false;
         if (!wasCssTinkeredWith) {
