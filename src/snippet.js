@@ -78,7 +78,7 @@ var Snippet = (function() {
                     if (!wasCssTinkeredWith)
                       $('.snippet .arrow-box').addClass('selected');
                   }, 3000);
-                }, 1000);
+                }, 2500);
               });
             });
         }, 1000);
