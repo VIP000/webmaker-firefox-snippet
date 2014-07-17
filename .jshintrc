@@ -6,5 +6,6 @@
     "trailing": true,
     "immed": true,
     "predef": ["console", "require", "__dirname"],
-    "esnext": true
+    "esnext": true,
+    "lastsemic": true
 }
