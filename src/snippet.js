@@ -53,6 +53,12 @@ var Snippet = (function() {
     typeNextChar();
   }
 
+  function showIcon(wait) {
+    setTimeout(function(){
+      $('.snippet .icon').addClass('show');
+    }, wait || 0);
+  }
+
   function startRemixing() {
     inCruiseControl = true;
     $('#snippet-pg-1').fadeOut(function() {
@@ -72,6 +78,7 @@ var Snippet = (function() {
               typeCssChars('DeepSkyBlue', function() {
                 inCruiseControl = false;
                 setTimeout(function() {
+                  showIcon(1000);
                   $('.body-frame, .arrow-box').removeClass('selected');
                   $('#snippet-end').addClass('selected');
                   setTimeout(function() {
