@@ -1,8 +1,14 @@
 <div class="snippet">
   <style>{{{style}}}</style>
-  <script>{{{script}}}</script>
+  <script>
+    /*<![CDATA[*/
+    {{{script}}}
+    /*]]>*/
+  </script>
   <script>$(Snippet.start)</script>
-  <img class="icon" src="{{{icon}}}"/>
+  <a href="https://party.webmaker.org/">
+    <img class="icon" src="{{{icon}}}"/>
+  </a>
 
   <div class="snippet-content">
     <div id="snippet-pg-1">
@@ -22,10 +28,9 @@
       </code>
 
       <p id="snippet-end">
-        Not too shabby! Curious to learn more about what&rsquo;s under
-        the hood of a webpage?
-        Visit <a href="http://welcome.webmaker.org">Webmaker.org</a> to
-        create and remix the web.
+        Hooked? Maker Party, Mozilla's annual campaign to teach the web,
+        can help you go further.
+        <a href="https://party.webmaker.org/">Sign up to learn more.</a>
       </p>
     </div>
   </div>

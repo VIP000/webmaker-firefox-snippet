@@ -1,4 +1,5 @@
 const fs = require('fs');
+const mime = require('mime');
 const path = require('path');
 const gulp = require('gulp');
 const rename = require('gulp-rename');
@@ -15,8 +16,8 @@ const join = path.join.bind(path, __dirname);
 
 const JQUERY_VERSION = '2.1.1';
 const JQUERY_REPO = 'git@github.com:jquery/jquery.git';
-const LOGO_PATH = 'webmaker-logo.png';
-const LOGO_TYPE = 'image/png';
+const LOGO_PATH = 'maker-party.svg';
+const LOGO_TYPE = mime.lookup(LOGO_PATH);
 
 gulp.task('default', ['bundle']);
 
@@ -75,7 +76,7 @@ gulp.task('deep-clean', ['clean'], function (callback) {
 });
 
 gulp.task('watch', function () {
-  gulp.watch('./src/*', ['test']);
+  gulp.watch(['./src/*', './gulpfile.js'], ['test']);
 });
 
 gulp.task('fetch-jquery', function () {

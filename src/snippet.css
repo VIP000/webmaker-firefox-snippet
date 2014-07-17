@@ -1,3 +1,11 @@
+@keyframes bounce {
+  0% { transform:translateY(0%) }
+  20% {	transform:translateY(-30%) }
+  30% { transform:translateY(10%) }
+  50% { transform:translateY(0) }
+  100% { transform:translateY(0) }
+}
+
 body {
   transition: background 0.25s;
 }
@@ -10,11 +18,10 @@ div.snippet img.icon {
   margin: -0.6em 0.3em 0 0;
   width: 48px;
   float: left;
-  opacity: 0;
 }
 
-div.snippet img.icon.show {
-  opacity: 1;
+div.snippet img.icon.bounce {
+	animation: bounce 1.2s;
 }
 
 .snippet {

@@ -4,6 +4,7 @@ var Snippet = (function() {
   var setTimeout = window.setTimeout;
   var inCruiseControl = false;
   var wasCssTinkeredWith = false;
+  var initialColor = "LightSkyBlue";
 
   // from http://24ways.org/2010/calculating-color-contrast/
   function isDark(cssString){
@@ -55,9 +56,10 @@ var Snippet = (function() {
 
   function showIcon(wait) {
     setTimeout(function(){
-      $('.snippet .icon').addClass('show');
+      $('.snippet .icon').addClass('bounce');
     }, wait || 0);
   }
+  window.showIcon = showIcon;
 
   function startRemixing() {
     inCruiseControl = true;
@@ -69,22 +71,21 @@ var Snippet = (function() {
           inCruiseControl = false;
           return;
         }
-
         $('.body-frame').addClass('selected');
         setTimeout(function() {
           $('.body-frame .arrow-box')
             .addClass('selected')
             .one('transitionend', function() {
-              typeCssChars('DeepSkyBlue', function() {
+              typeCssChars(initialColor, function() {
                 inCruiseControl = false;
                 setTimeout(function() {
-                  showIcon(1000);
+                  showIcon(2000);
                   $('.body-frame, .arrow-box').removeClass('selected');
                   $('#snippet-end').addClass('selected');
                   setTimeout(function() {
                     if (!wasCssTinkeredWith)
                       $('.snippet .arrow-box').addClass('selected');
-                  }, 3000);
+                  }, 4000);
                 }, 2500);
               });
             });
