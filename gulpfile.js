@@ -15,6 +15,8 @@ const join = path.join.bind(path, __dirname);
 
 const JQUERY_VERSION = '2.1.1';
 const JQUERY_REPO = 'git@github.com:jquery/jquery.git';
+const LOGO_PATH = 'webmaker-logo.png';
+const LOGO_TYPE = 'image/png';
 
 gulp.task('default', ['bundle']);
 
@@ -45,8 +47,8 @@ gulp.task('js', ['jquery', 'snippet-js'], function () {
 gulp.task('bundle', ['css', 'js'], function () {
   const style = readfile(join('dist', 'snippet.min.css'));
   const script = readfile(join('dist', 'bundle.js'));
-  const icon = 'data:image/png;base64,' +
-    readfile(join('src', 'webmaker-logo.png')).toString('base64');
+  const icon = f('data:%s;base64,', LOGO_TYPE) +
+    readfile(join('src', LOGO_PATH)).toString('base64');
 
   const templateData = {script: script, style: style, icon: icon};
 
@@ -61,7 +63,7 @@ gulp.task('test', ['bundle'], function () {
   return gulp.src('./src/index.template')
     .pipe(handlebars(templateData))
     .pipe(rename('index.html'))
-    .pipe(gulp.dest('./test/'));
+    .pipe(gulp.dest('./'));
 });
 
 gulp.task('clean', function (callback) {
