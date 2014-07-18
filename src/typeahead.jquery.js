@@ -459,6 +459,7 @@
             },
             setInputValue: function setInputValue(value, silent) {
                 this.$input.val(value);
+                this.$input.trigger("change");
                 silent ? this.clearHint() : this._checkInputValue();
             },
             resetInputValue: function resetInputValue() {

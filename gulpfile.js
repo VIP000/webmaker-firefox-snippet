@@ -35,10 +35,18 @@ gulp.task('snippet-js', function () {
     .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('js', ['jquery', 'snippet-js'], function () {
+gulp.task('typeahead', function () {
+  return gulp.src([
+    './src/typeahead.jquery.js',
+  ]).pipe(uglify())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(gulp.dest('./dist'));
+});
+
+gulp.task('js', ['typeahead', 'jquery', 'snippet-js'], function () {
   return gulp.src([
     './dist/jquery.custom.min.js',
-    './src/typeahead.jquery.min.js',
+    './dist/typeahead.jquery.min.js',
     './dist/snippet-bundle.js',
   ]).pipe(concat('bundle.js'))
     .pipe(uglify({mangle: false}))
