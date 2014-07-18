@@ -1,3 +1,5 @@
+// console.log(DEBUG = true);
+
 /*global window, $, CSS_COLORS*/
 /*exported Snippet*/
 var Snippet = (function() {
@@ -67,10 +69,11 @@ var Snippet = (function() {
       $('#snippet-pg-2').fadeIn(function() {
         $('#snippet-css').focus();
 
-        if (typeof DEBUG_MODE !== 'undefined') {
+        if (typeof DEBUG !== 'undefined') {
           inCruiseControl = false;
           return;
         }
+
         $('.body-frame').addClass('selected');
         setTimeout(function() {
           $('.body-frame .arrow-box')
