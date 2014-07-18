@@ -140,6 +140,11 @@ div.snippet img.icon.bounce {
 
 #snippet-end {
   transition: opacity 1s;
+  padding: 1em;
+  margin-left: -1em;
+  border-radius: 0.5em;
+  background: #fff;
+  color: #3C3C3C !important;
 }
 
 #snippet-end:not(.selected) {
