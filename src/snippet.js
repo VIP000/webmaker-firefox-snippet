@@ -89,7 +89,7 @@ var Snippet = (function() {
                     if (!wasCssTinkeredWith)
                       $('.snippet .arrow-box').addClass('selected');
                   }, 4000);
-                }, 2500);
+                }, 4000);
               });
             });
         }, 1000);
