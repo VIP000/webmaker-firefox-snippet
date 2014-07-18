@@ -6,7 +6,7 @@ var Snippet = (function() {
   var setTimeout = window.setTimeout;
   var inCruiseControl = false;
   var wasCssTinkeredWith = false;
-  var initialColor = "LightSkyBlue";
+  var initialColor = "Gold";
 
   // from http://24ways.org/2010/calculating-color-contrast/
   function isDark(cssString){
