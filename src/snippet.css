@@ -73,10 +73,18 @@ div.snippet img.icon.bounce {
 
 .snippet #snippet-css {
   border: none;
-  background: transparent;
+  border: 1px solid rgba(0,0,0,0.1);
+  background: rgba(255,255,255,0.25) !important;
+  border-radius: 3px;
+  padding: 0.3em;
   /* Twitter typeahead is pushing it down somehow, so we'll push it
    * back up with this. */
-  margin-top: -0.9em;
+  margin-top: -1.2em;
+}
+
+.snippet .tt-hint {
+  background: transparent !important;
+  opacity: 0;
 }
 
 .snippet .tt-dropdown-menu {
