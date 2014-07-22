@@ -40,7 +40,6 @@ var Snippet = (function() {
     if (onColorChange && css != initialColor.toLowerCase())
       onColorChange(hex);
 
-    $('#snippet-css').typeahead('close');
     $('body').css('background', hex);
   }
 
@@ -72,6 +71,7 @@ var Snippet = (function() {
     if (remixed) return false;
     remixed = true;
 
+    var $snippetCss = $('#snippet-css');
     var afterClickDelay = 1000;
     var afterTypeDelay = 1500;
     var flyoutDisplayTime = 5000;
@@ -80,7 +80,7 @@ var Snippet = (function() {
     inCruiseControl = true;
     $('#snippet-pg-1').fadeOut(function() {
       $('#snippet-pg-2').fadeIn(function() {
-        $('#snippet-css').focus();
+        $snippetCss.focus();
 
         if (typeof DEBUG !== 'undefined') {
           inCruiseControl = false;
@@ -88,7 +88,7 @@ var Snippet = (function() {
         }
 
         setTimeout(function() {
-          $('#snippet-css').focus();
+          $snippetCss.focus();
           typeCssChars(initialColor, function afterGhostWriter() {
             $('.body-frame').addClass('selected');
             $('.body-frame .arrow-box')
@@ -99,11 +99,12 @@ var Snippet = (function() {
                   $('.body-frame, .arrow-box').removeClass('selected');
 
                   $('.snippet .arrow-box').addClass('selected');
-                  $('#snippet-css').select();
+                  $snippetCss.select();
                   inCruiseControl = false;
 
                   onColorChange = function() {
                     onColorChange = null;
+                    $snippetCss.typeahead('close');
                     bounceIcon();
                     setTimeout(function () {
                       $('#snippet-end').addClass('selected');
