@@ -24,7 +24,7 @@
       </p>
 
       <code>
-        body { background: <span id="snippet-css-container"><span class="arrow-box">Try typing a color name, like red</span><input type="text" id="snippet-css" autocomplete="off" /></span> }
+        body { background: <span id="snippet-css-container"><span class="arrow-box">Try typing a color name, like <code>orange</code></span><input type="text" id="snippet-css" autocomplete="off" /></span> }
       </code>
 
       <p id="snippet-end">

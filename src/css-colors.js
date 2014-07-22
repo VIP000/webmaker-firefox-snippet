@@ -148,5 +148,7 @@ var CSS_COLORS = {
   "tomato": "#ff6347",
   "white": "#ffffff",
   "yellow": "#ffff00",
+
+  // http://meyerweb.com/eric/thoughts/2014/06/19/rebeccapurple/
   "rebeccapurple": "#663399"
 };

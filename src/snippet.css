@@ -113,13 +113,15 @@ div.snippet img.icon.bounce {
 .snippet .arrow-box {
   position: absolute;
   top: -40px;
-  left: -20px;
+  left: -7px;
   color: white;
   padding: 4px;
   font: message-box;
   background: rgba(0, 0, 0, 0.85);
   border-radius: 4px;
   display: inline-block;
+  width: 19em;
+  text-align: center;
   transition: opacity 0.5s;
 }
 
@@ -192,7 +194,7 @@ div.snippet img.icon.bounce {
   width: 200px;
   padding: 20px 20px;
   margin-left: 10px;
-  margin-top: 25%;
+  top: 48%;
   border-radius: 4px;
   transition: opacity 1s, margin-left 1s;
 }

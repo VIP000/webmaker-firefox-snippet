@@ -3,10 +3,12 @@
 /*global window, $, CSS_COLORS*/
 /*exported Snippet*/
 var Snippet = (function() {
+  var remixed = false;
   var setTimeout = window.setTimeout;
   var inCruiseControl = false;
   var wasCssTinkeredWith = false;
   var initialColor = "Gold";
+  var onColorChange;
 
   // from http://24ways.org/2010/calculating-color-contrast/
   function isDark(cssString){
@@ -19,51 +21,62 @@ var Snippet = (function() {
   }
 
   function setCss() {
-    var css = $('#snippet-css').val();
+    var css = $('#snippet-css').val().toLowerCase();
     var $snippet = $('.snippet');
-    // http://meyerweb.com/eric/thoughts/2014/06/19/rebeccapurple/
-    if (/^(re)?beccapurple$/i.test(css.trim()))
-      css = '#663399';
+    var hex = CSS_COLORS[css];
 
-    var hex = CSS_COLORS[css.toLowerCase()];
-    if (hex) {
-      if (isDark(hex)) {
-        $snippet.addClass('dark');
-      } else {
-        $snippet.removeClass('dark');
-      }
+    if (!hex) return;
+
+    if (isDark(hex)) {
+      $snippet.addClass('dark');
+    } else {
+      $snippet.removeClass('dark');
     }
 
     if (!css) {
       $snippet.removeClass('dark');
     }
 
-    $('body').css('background', css);
+    if (onColorChange && css != initialColor.toLowerCase())
+      onColorChange(hex);
+
+    $('#snippet-css').typeahead('close');
+    $('body').css('background', hex);
   }
 
-  function typeCssChars(chars, cb) {
+  function typeCssChars(chars, cb, delay) {
     var $snippetCss = $('#snippet-css');
     chars = chars.split('');
 
     function typeNextChar() {
-      if (chars.length === 0) return cb();
+      if (chars.length === 0) {
+        console.log(delay);
+        return setTimeout(cb, delay || 0);
+      }
       $snippetCss.val($snippetCss.val() + chars.shift());
       setCss();
-      setTimeout(typeNextChar, 250);
+      setTimeout(typeNextChar, 333);
     }
 
     $snippetCss.val('');
     typeNextChar();
   }
 
-  function showIcon(wait) {
+  function bounceIcon(wait) {
     setTimeout(function(){
       $('.snippet .icon').addClass('bounce');
     }, wait || 0);
   }
-  window.showIcon = showIcon;
 
   function startRemixing() {
+    if (remixed) return false;
+    remixed = true;
+
+    var afterClickDelay = 1000;
+    var afterTypeDelay = 1500;
+    var flyoutDisplayTime = 6000;
+    var delayBeforeEnd = 1500;
+
     inCruiseControl = true;
     $('#snippet-pg-1').fadeOut(function() {
       $('#snippet-pg-2').fadeIn(function() {
@@ -74,25 +87,33 @@ var Snippet = (function() {
           return;
         }
 
-        $('.body-frame').addClass('selected');
         setTimeout(function() {
-          $('.body-frame .arrow-box')
-            .addClass('selected')
-            .one('transitionend', function() {
-              typeCssChars(initialColor, function() {
-                inCruiseControl = false;
-                setTimeout(function() {
-                  showIcon(2000);
+          $('#snippet-css').focus();
+          typeCssChars(initialColor, function afterGhostWriter() {
+            $('.body-frame').addClass('selected');
+            $('.body-frame .arrow-box')
+              .addClass('selected')
+              .one('transitionend', function afterInitialClick() {
+                setTimeout(function afterDelay() {
+
                   $('.body-frame, .arrow-box').removeClass('selected');
-                  $('#snippet-end').addClass('selected');
-                  setTimeout(function() {
-                    if (!wasCssTinkeredWith)
-                      $('.snippet .arrow-box').addClass('selected');
-                  }, 4000);
-                }, 4000);
+
+                  $('.snippet .arrow-box').addClass('selected');
+                  $('#snippet-css').select();
+                  inCruiseControl = false;
+
+                  onColorChange = function() {
+                    onColorChange = null;
+                    bounceIcon();
+                    setTimeout(function () {
+                      $('#snippet-end').addClass('selected');
+                    }, delayBeforeEnd);
+                  };
+
+                }, flyoutDisplayTime);
               });
-            });
-        }, 1000);
+          }, afterTypeDelay);
+        }, afterClickDelay);
       });
     });
   }
