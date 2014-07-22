@@ -20,7 +20,7 @@
     </div>
     <div id="snippet-pg-2" style="display: none">
       <p>
-        This is the CSS required to change the background of the page.
+        Here is the code required to change the color of the background of the webpage
       </p>
 
       <code>
@@ -38,7 +38,7 @@
 
 <div class="body-frame">
   <div class="arrow-box">
-    A webpage has many parts that can be styled—the "<code>background</code>"
-    property allows you to set a color.
+    The body of a webpage has many parts that can be styled—the
+    "<code>background</code>" property allows you to set a color.
   </div>
 </div>
