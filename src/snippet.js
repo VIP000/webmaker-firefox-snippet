@@ -74,7 +74,7 @@ var Snippet = (function() {
 
     var afterClickDelay = 1000;
     var afterTypeDelay = 1500;
-    var flyoutDisplayTime = 6000;
+    var flyoutDisplayTime = 5000;
     var delayBeforeEnd = 1500;
 
     inCruiseControl = true;
