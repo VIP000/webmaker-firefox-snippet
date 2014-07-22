@@ -76,7 +76,7 @@ div.snippet img.icon.bounce {
   background: transparent;
   /* Twitter typeahead is pushing it down somehow, so we'll push it
    * back up with this. */
-  margin-top: -1.1em;
+  margin-top: -0.9em;
 }
 
 .snippet .tt-dropdown-menu {
