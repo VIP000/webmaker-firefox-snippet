@@ -72,7 +72,7 @@ var Snippet = (function() {
     remixed = true;
 
     var $snippetCss = $('#snippet-css');
-    var afterClickDelay = 1000;
+    var afterClickDelay = 1500;
     var afterTypeDelay = 1500;
     var flyoutDisplayTime = 5000;
     var delayBeforeEnd = 1500;
