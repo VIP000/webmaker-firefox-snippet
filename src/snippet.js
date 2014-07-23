@@ -10,6 +10,11 @@ var Snippet = (function() {
   var initialColor = "Gold";
   var onColorChange;
 
+  var afterClickDelay = 1500;
+  var afterTypeDelay = 1500;
+  var flyoutDisplayTime = 5000;
+  var delayBeforeEnd = 1500;
+
   // from http://24ways.org/2010/calculating-color-contrast/
   function isDark(cssString){
 	  var hex = cssString.replace('#', '');
@@ -49,7 +54,6 @@ var Snippet = (function() {
 
     function typeNextChar() {
       if (chars.length === 0) {
-        console.log(delay);
         return setTimeout(cb, delay || 0);
       }
       $snippetCss.val($snippetCss.val() + chars.shift());
@@ -72,10 +76,6 @@ var Snippet = (function() {
     remixed = true;
 
     var $snippetCss = $('#snippet-css');
-    var afterClickDelay = 1500;
-    var afterTypeDelay = 1500;
-    var flyoutDisplayTime = 5000;
-    var delayBeforeEnd = 1500;
 
     inCruiseControl = true;
     $('#snippet-pg-1').fadeOut(function() {
@@ -159,8 +159,29 @@ var Snippet = (function() {
     // $('#snippet-css').focus().typeahead('val', 'gray').typeahead('open');
   }
 
+  function showIntroText() {
+    var version = 'a';
+    var query = window.location.search;
+    var match = query.match('intro=([^&]+)');
+    if (match) version = match[1];
+    $('.' + version + '-test').show();
+  }
+
+  function changeFlyoutDelay() {
+    var query = window.location.search;
+    var match = query.match('delay=([^&]+)');
+    if (!match) return;
+
+    flyoutDisplayTime = parseInt(match[1], 10);
+    console.log(flyoutDisplayTime);
+  }
   function start() {
     var $snippetCss = $('#snippet-css');
+
+    // XXX: remove for production
+    showIntroText();
+    changeFlyoutDelay();
+
     activateTypeahead();
     $snippetCss.on('keyup change', setCss);
     $snippetCss.on('keydown', function(e) {

@@ -12,10 +12,15 @@
 
   <div class="snippet-content">
     <div id="snippet-pg-1">
-      <p>
-        Hey you, maker! Want to redesign this page?
-        <a id="snippet-begin" href="#">Click here</a>
-        to change the background.
+      <p style="display: none" class="a-test">
+        You can be a maker of the web and redesign this page. <br/>
+        It's easy—just <a id="snippet-begin" href="#">click here to change
+        the background</a>.
+      </p>
+      <p style="display: none" class="b-test">
+         Anyone has the power to build the web, starting with this
+         page. <a id="snippet-begin" href="#">Click here to change the
+         background</a>.
       </p>
     </div>
     <div id="snippet-pg-2" style="display: none">
