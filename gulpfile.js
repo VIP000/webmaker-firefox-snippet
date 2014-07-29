@@ -57,7 +57,7 @@ gulp.task('build', ['css', 'minify-js'], function () {
     .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('test', ['bundle'], function () {
+gulp.task('test', ['build'], function () {
   const templateData = {snippet: readfile(join('dist', 'snippet.html'))};
   return gulp.src('./src/index.template')
     .pipe(handlebars(templateData))
