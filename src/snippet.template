@@ -5,7 +5,6 @@
     {{{script}}}
     /*]]>*/
   </script>
-  <script>$(Snippet.start)</script>
   <a href="https://welcome.webmaker.org/">
     <img class="icon" src="{{{icon}}}"/>
   </a>

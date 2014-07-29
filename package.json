@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Webmaker Firefox Snippet",
   "scripts": {
-    "test": "npm install && gulp test && cd test && lute open"
+    "test": "gulp test && lute open",
+    "start": "gulp clean && gulp build"
   },
   "repository": {
     "type": "git",
@@ -21,15 +22,12 @@
     "gulp": "^3.8.6",
     "gulp-clean": "^0.3.1",
     "gulp-compile-handlebars": "^0.2.0",
-    "gulp-concat": "^2.3.3",
     "gulp-minify-css": "^0.3.6",
     "gulp-rename": "^1.2.0",
-    "gulp-shell": "^0.2.8",
     "gulp-uglify": "^0.3.1",
     "jshint": "^2.5.2",
     "lute": "0.0.4",
     "mime": "^1.2.11",
-    "rimraf": "^2.2.8",
     "uglifyjs": "^2.3.6"
   }
 }
