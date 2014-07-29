@@ -8,7 +8,7 @@ const uglify = require('gulp-uglify');
 const concat = require('gulp-concat');
 const handlebars = require('gulp-compile-handlebars');
 const shell = require('gulp-shell');
-const rimraf = require('rimraf');
+const clean = require('gulp-clean');
 
 const f = require('util').format;
 const readfile = fs.readFileSync.bind(fs);
@@ -25,14 +25,14 @@ gulp.task('css', function() {
   return gulp.src('./src/*.css')
     .pipe(minifyCSS())
     .pipe(rename({suffix: '.min'}))
-    .pipe(gulp.dest('./dist/'));
+    .pipe(gulp.dest('./build/'));
 });
 
 gulp.task('snippet-js', function () {
   return gulp.src(['./src/css-colors.js', './src/snippet.js'])
     .pipe(concat('snippet-bundle.js'))
     .pipe(uglify({mangle: { reserved: 'Snippet'}}))
-    .pipe(gulp.dest('./dist/'));
+    .pipe(gulp.dest('./build/'));
 });
 
 gulp.task('typeahead', function () {
@@ -40,22 +40,22 @@ gulp.task('typeahead', function () {
     './src/typeahead.jquery.js',
   ]).pipe(uglify())
     .pipe(rename({suffix: '.min'}))
-    .pipe(gulp.dest('./dist'));
+    .pipe(gulp.dest('./build'));
 });
 
 gulp.task('js', ['typeahead', 'jquery', 'snippet-js'], function () {
   return gulp.src([
-    './dist/jquery.custom.min.js',
-    './dist/typeahead.jquery.min.js',
-    './dist/snippet-bundle.js',
+    './build/jquery.custom.min.js',
+    './build/typeahead.jquery.min.js',
+    './build/snippet-bundle.js',
   ]).pipe(concat('bundle.js'))
     .pipe(uglify({mangle: false}))
-    .pipe(gulp.dest('./dist/'));
+    .pipe(gulp.dest('./build/'));
 });
 
 gulp.task('bundle', ['css', 'js'], function () {
-  const style = readfile(join('dist', 'snippet.min.css'));
-  const script = readfile(join('dist', 'bundle.js'));
+  const style = readfile(join('build', 'snippet.min.css'));
+  const script = readfile(join('build', 'bundle.js'));
   const icon = f('data:%s;base64,', LOGO_TYPE) +
     readfile(join('src', LOGO_PATH)).toString('base64');
 
@@ -75,12 +75,15 @@ gulp.task('test', ['bundle'], function () {
     .pipe(gulp.dest('./'));
 });
 
-gulp.task('clean', function (callback) {
-  rimraf('./dist/*', callback);
+gulp.task('clean', function () {
+  const folders = ['./dist/*', './build/*'];
+  return gulp.src(folders, {read: false})
+    .pipe(clean());
 });
 
-gulp.task('deep-clean', ['clean'], function (callback) {
-  rimraf('./jquery', callback);
+gulp.task('deep-clean', ['clean'], function () {
+  return gulp.src('./jquery', {read: false})
+    .pipe(clean());
 });
 
 gulp.task('watch', function () {
@@ -97,7 +100,7 @@ gulp.task('fetch-jquery', function () {
 
 gulp.task('build-jquery', ['fetch-jquery'], function () {
   const buildOptionsFile = join('src', 'jquery-build-options.json');
-  const buildOutput = join('dist', 'jquery.custom.min.js');
+  const buildOutput = join('build', 'jquery.custom.min.js');
 
   if (!fs.existsSync(buildOutput)) {
     return build();
@@ -124,5 +127,5 @@ gulp.task('build-jquery', ['fetch-jquery'], function () {
 
 gulp.task('jquery', ['build-jquery'], function () {
   return fs.createReadStream(join('jquery', 'dist', 'jquery.min.js'))
-    .pipe(fs.createWriteStream(join('dist', 'jquery.custom.min.js')));
+    .pipe(fs.createWriteStream(join('build', 'jquery.custom.min.js')));
 });

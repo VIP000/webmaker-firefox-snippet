@@ -1,9 +1,6 @@
-/snippet-html.js
-/snippet.min.js
-/bundle.js
 /jquery/
-/webmaker-logo.png.datauri
 /node_modules/
-dist
 /src/jquery.custom.min.js
 /test/index.html
+dist
+build
