@@ -12,20 +12,15 @@
 
   <div class="snippet-content">
     <div id="snippet-pg-1">
-      <p style="display: none" class="a-test">
-        You can be a maker of the web and redesign this page. <br/>
-        It's easy—just <a id="snippet-begin" href="#">click here to change
-        the background</a>.
-      </p>
-      <p style="display: none" class="b-test">
-         Anyone has the power to build the web, starting with this
-         page. <a id="snippet-begin" href="#">Click here to change the
-         background</a>.
-      </p>
+      Anyone has the power to build the web, starting with this page.
+      <a id="snippet-begin" href="#">
+        It's easy—just click here to change the background color
+      </a>.
     </div>
     <div id="snippet-pg-2" style="display: none">
       <p>
-        Here is the code required to change the color of the background of the webpage:
+        Coding the background the webpage is as simple as typing in a
+        new color:
       </p>
 
       <code>
@@ -33,8 +28,8 @@
       </code>
 
       <p id="snippet-end">
-        Hooked? Maker Party, Mozilla's global campaign to teach web
-        literacy, can help you go further.
+        Hooked? Maker Party, Mozilla's global campaign to teach and
+        learn the web through hands-on making, can help you go further
         <a href="https://welcome.webmaker.org/">Sign up to learn more.</a>
       </p>
     </div>

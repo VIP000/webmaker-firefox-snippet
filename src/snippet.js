@@ -159,29 +159,8 @@ var Snippet = (function() {
     // $('#snippet-css').focus().typeahead('val', 'gray').typeahead('open');
   }
 
-  function showIntroText() {
-    var version = 'a';
-    var query = window.location.search;
-    var match = query.match('intro=([^&]+)');
-    if (match) version = match[1];
-    $('.' + version + '-test').show();
-  }
-
-  function changeFlyoutDelay() {
-    var query = window.location.search;
-    var match = query.match('delay=([^&]+)');
-    if (!match) return;
-
-    flyoutDisplayTime = parseInt(match[1], 10);
-    console.log(flyoutDisplayTime);
-  }
   function start() {
     var $snippetCss = $('#snippet-css');
-
-    // XXX: remove for production
-    showIntroText();
-    changeFlyoutDelay();
-
     activateTypeahead();
     $snippetCss.on('keyup change', setCss);
     $snippetCss.on('keydown', function(e) {
