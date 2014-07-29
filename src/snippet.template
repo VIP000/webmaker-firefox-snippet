@@ -14,7 +14,7 @@
     <div id="snippet-pg-1">
       <p>
         Anyone has the power to build the web, starting with this page.<br/>
-        It's easy—<a id="snippet-begin" href="#"> just click here to change the background color</a>.
+        It's easy—<a id="snippet-begin" href="#">just click here to change the background color</a>.
       </p>
     </div>
     <div id="snippet-pg-2" style="display: none">
