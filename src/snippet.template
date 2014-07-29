@@ -12,17 +12,16 @@
 
   <div class="snippet-content">
     <div id="snippet-pg-1">
-      Anyone has the power to build the web, starting with this page.
-      <a id="snippet-begin" href="#">
-        It's easy—just click here to change the background color
-      </a>.
+      <p>
+        Anyone has the power to build the web, starting with this page.<br/>
+        It's easy—<a id="snippet-begin" href="#"> just click here to change the background color</a>.
+      </p>
     </div>
     <div id="snippet-pg-2" style="display: none">
       <p>
-        Coding the background the webpage is as simple as typing in a
+        Coding the background the webpage is as simple as typing in a<br/>
         new color:
       </p>
-
       <code>
         body { background: <span id="snippet-css-container"><span class="arrow-box">Try typing a color name, like <code>orange</code></span><input type="text" id="snippet-css" autocomplete="off" /></span> }
       </code>
