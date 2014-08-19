@@ -23,7 +23,7 @@ body {
   transition: background 0.25s;
 }
 
-div.snippet img.icon {
+.webmaker-hackable-snippet img.icon {
   transition: opacity 1.0s;
   position: absolute;
   top: 5px;
@@ -33,52 +33,48 @@ div.snippet img.icon {
   float: left;
 }
 
-div.snippet img.icon.bounce {
+.webmaker-hackable-snippet img.icon.bounce {
 	animation: bounce 1.2s;
 }
 
-.snippet {
+.webmaker-hackable-snippet {
   position: relative;
 }
-.snippet p {
+.webmaker-hackable-snippet p {
   padding-left: inherit !important;
 }
 
-.snippet a {
+.webmaker-hackable-snippet a {
   cursor: pointer;
 }
 
-.snippet.dark {
+.webmaker-hackable-snippet.dark {
   color: #f0f0f0
 }
 
-.snippet.dark #snippet-css {
+.webmaker-hackable-snippet.dark #snippet-css {
   color: #fff;
 }
 
-.snippet.dark a {
+.webmaker-hackable-snippet.dark a {
   color: #00bfff;
 }
 
-.twitter-typeahead {
-  color: #3C3C3C
-}
-
-.snippet .snippet-content {
+.webmaker-hackable-snippet .snippet-content {
   padding-left: 80px;
   width: 400px;
   height: 180px;
 }
 
-.snippet code {
+.webmaker-hackable-snippet code {
   font-size: 12px;
 }
 
-.snippet #snippet-css, .snippet .tt-dropdown-menu {
+.webmaker-hackable-snippet #snippet-css, .webmaker-hackable-snippet .tt-dropdown-menu {
   width: 200px;
 }
 
-.snippet #snippet-css {
+.webmaker-hackable-snippet #snippet-css {
   border: none;
   border: 1px solid rgba(0,0,0,0.1);
   background: rgba(255,255,255,0.25) !important;
@@ -90,12 +86,12 @@ div.snippet img.icon.bounce {
   vertical-align: inherit !important;
 }
 
-.snippet .tt-hint {
+.webmaker-hackable-snippet .tt-hint {
   background: transparent !important;
   opacity: 0;
 }
 
-.snippet .tt-dropdown-menu {
+.webmaker-hackable-snippet .tt-dropdown-menu {
   font: message-box;
   background: white;
   max-height: 150px;
@@ -104,21 +100,21 @@ div.snippet img.icon.bounce {
   box-shadow: 2px 2px 2px black;
 }
 
-.snippet .tt-dropdown-menu p {
+.webmaker-hackable-snippet .tt-dropdown-menu p {
   margin: 0;
 }
 
-.snippet .tt-dropdown-menu .tt-suggestion {
+.webmaker-hackable-snippet .tt-dropdown-menu .tt-suggestion {
   padding: 2px;
 }
 
-.snippet .tt-dropdown-menu .tt-cursor {
+.webmaker-hackable-snippet .tt-dropdown-menu .tt-cursor {
   color: white;
   background: black;
 }
 
 /* http://cssarrowplease.com/ */
-.snippet .arrow-box {
+.webmaker-hackable-snippet .arrow-box {
   position: absolute;
   top: -40px;
   left: -7px;
@@ -133,11 +129,11 @@ div.snippet img.icon.bounce {
   transition: opacity 0.5s;
 }
 
-.snippet .arrow-box:not(.selected) {
+.webmaker-hackable-snippet .arrow-box:not(.selected) {
   opacity: 0;
 }
 
-.snippet .arrow-box:after {
+.webmaker-hackable-snippet .arrow-box:after {
   top: 100%;
   left: 50%;
   border: solid transparent;
@@ -150,6 +146,15 @@ div.snippet img.icon.bounce {
   border-top-color: rgba(0, 0, 0, 0.85);
   border-width: 4px;
   margin-left: -4px;
+}
+
+.webmaker-hackable-snippet .twitter-typeahead {
+  color: #3C3C3C
+}
+
+.webmaker-hackable-snippet .tt-dropdown-menu p {
+  height: auto;
+  padding: 0.25em 0 0;
 }
 
 #snippet-css-container {
@@ -170,11 +175,6 @@ div.snippet img.icon.bounce {
 
 #snippet-end:not(.selected) {
   opacity: 0;
-}
-
-.snippet .tt-dropdown-menu p {
-  height: auto;
-  padding: 0.25em 0 0;
 }
 
 .body-frame {
