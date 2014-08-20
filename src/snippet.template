@@ -5,7 +5,7 @@
     {{{script}}}
     /*]]>*/
   </script>
-  <a href="https://welcome.webmaker.org/">
+  <a href="https://welcome.webmaker.org/signup/learners/">
     <img class="icon" src="{{{icon}}}"/>
   </a>
 
@@ -28,7 +28,7 @@
       <p id="snippet-end">
         Hooked? Maker Party, Mozilla's global campaign to teach and
         learn the web through hands-on making, can help you go further
-        <a href="https://welcome.webmaker.org/">Sign up to learn more.</a>
+        <a href=" https://welcome.webmaker.org/signup/learners/">Sign up to learn more.</a>
       </p>
     </div>
   </div>
